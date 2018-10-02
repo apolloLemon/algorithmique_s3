@@ -1,0 +1,16 @@
+// Il cherche le max, le min et la somme du tableau
+
+
+/* La complexite' => 5(N-1) ~ O(n)
+
+Pour i de 2 a' N par pas +1 			//*2(N-1)
+	Somme = Somme + T[i]				//+1 =
+	Si T[i] > T[Imax]					//+1 >
+		Imax = i 						//+1 =
+		Sinon Si T[i] < T[Imin]			//+1 <
+			Imin = i 					//+1 =
+		FinSi
+	FinSi
+FunPour
+
+*/

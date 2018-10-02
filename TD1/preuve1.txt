@@ -1,0 +1,14 @@
+/*
+Preuve: O(3N^2 + 6N + 8)  => O(N^2)
+
+T(n) = a_k*N^k + ... + a_1*N^1 + a_0*N^0
+ 
+
+c = max(a_k) et absorbe les autres scalaires
+T(n) <= c*N^k + ... + c*N^1 + c*N^0
+
+T(n) <= c( N^k + ... + N )
+
+T(n) <= c(K+1)n^k
+
+*/

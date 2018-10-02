@@ -1,0 +1,36 @@
+/*
+Il fait que la diagonale = 0
+et que ce qui est a droite de la diagonale sois 0 ou >0
+
+ 4  3  2 -5
+-2  4  2 -5
+ 2  4 -6  3
+ 2 -3 -2  1
+
+deviens 
+
+ 0  3  2  0
+-2  0  2  0
+ 2  4  0  3
+ 2 -3 -2  0
+
+*/
+
+/*
+La premiere partie
+
+Pour i de 1 a' N   	//*N
+	A[i,i] = 0		//+1 =
+
+
+Pour i de 1 a' N				//*N
+	Pour j de (i+1) a' N		//*log(n)  //Non N/2
+		Si A[i,j] < 0			//+1 <
+			A[i,j] = 0			//+1 =
+		FinSi
+	FinPour
+FinPour
+
+N + N*N*2 = O(n^2)
+
+*/
