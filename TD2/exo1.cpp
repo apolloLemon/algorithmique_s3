@@ -9,9 +9,23 @@ using Liste = element *;
 int main (){}
 
 //a
-int triee (Liste L){
+bool triee (Liste L){
 	if((L==NULL) || (L->suiv==NULL)) return 1;
 	return 
 		(L->val < L->suiv->val) and triee(L->suiv);
 }
 
+//b
+void insert (Liste L, int x){
+	if(L==NULL) {
+		a = new element;
+		a->val = x;
+		a->suiv = NULL;
+		L = a;
+	} else if ( x < L->val){
+		a = new element;
+		a->val = x;
+		a->suiv = L;
+		L = a;
+	}
+}
