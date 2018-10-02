@@ -16,16 +16,16 @@ bool triee (Liste L){
 }
 
 //b
+void ajoute_debut (Liste &L, int x) {
+	a = new element;
+	a->val = x;
+	a->suiv = L;
+	L = a;
+}
+
 void insert (Liste L, int x){
-	if(L==NULL) {
-		a = new element;
-		a->val = x;
-		a->suiv = NULL;
-		L = a;
-	} else if ( x < L->val){
-		a = new element;
-		a->val = x;
-		a->suiv = L;
-		L = a;
+	if(L==NULL or x < L->val) {
+		ajoute_debut(L,x);
 	}
+	else insert(L->suiv,x);
 }
