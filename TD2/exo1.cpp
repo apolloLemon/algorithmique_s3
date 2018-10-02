@@ -40,3 +40,11 @@ void fu_zion_HA (Liste &L, Liste B) {
 		fu_zion_HA(L,B->suiv);
 	} else fu_zion_HA(L->suiv, B);
 }
+
+//c Aris
+void fu_zion_Aris (Liste &L, Liste B) {
+	if(B!=NULL){
+		insert(L,B->val);
+		fu_zion_Aris(L,B->suiv);
+	}
+}
