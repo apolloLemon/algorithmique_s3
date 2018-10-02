@@ -23,9 +23,20 @@ void ajoute_debut (Liste &L, int x) {
 	L = a;
 }
 
-void insert (Liste L, int x){
+void insert (Liste &L, int x){
 	if(L==NULL or x < L->val) {
 		ajoute_debut(L,x);
 	}
 	else insert(L->suiv,x);
+}
+
+
+//c first
+void fu_zion_HA (Liste &L, Liste B) {
+	if(L==NULL && B=NULL) return;
+	if(L==NULL) L = B;
+	if(B->val < L->val) {
+		ajoute_debut(L,B->val);
+		fu_zion_HA(L,B->suiv);
+	} else fu_zion_HA(L->suiv, B);
 }
