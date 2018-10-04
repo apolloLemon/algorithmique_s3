@@ -62,6 +62,21 @@ void COUT_List_Reverse (List L){
 	}
 }
 
+//g
+int List_Length_Iteratif(List L){
+	int out=0;
+	while(L!=NULL){
+		out++;
+		L=L->post;
+	}
+	return out;
+}
+
+int List_Length_Recursif(List L){
+	if(L==NULL) return 0;
+	return 1 + List_Length_Recursif(L->post);
+}
+
 int main () {
 	List A;
 	Init_Empty_List(A);
@@ -76,4 +91,9 @@ int main () {
 	COUT_List(A);
 	Insert_Tail(A, 5);
 	COUT_List_Reverse(A);
+	std::cout<<"List_Length_Iteratif: "
+		<<List_Length_Iteratif(A)<<std::endl;
+
+	std::cout<<"List_Length_Recursif: "
+		<<List_Length_Recursif(A)<<std::endl;
 }
