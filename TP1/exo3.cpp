@@ -3,7 +3,7 @@
 #include <array>
 #include <ctime>
 
-const int BUFF = 10;
+const int BUFF = 1000;
 
 using Tab = std::array<int, BUFF>;
 
@@ -80,6 +80,6 @@ int main () {
 	Tri_Rapid(B,0,B.size()-1);
 	B_Time = clock()-B_Time;
 
-	std::cout << "Tri Insertion: " << A_Time << std::endl;
-	std::cout << "Tri Rapide: " << B_Time << std::endl;
+	std::cout << "Tri Insertion: " << (float)A_Time/CLOCKS_PER_SEC << std::endl;
+	std::cout << "Tri Rapide: " << (float)B_Time/CLOCKS_PER_SEC << std::endl;
 }
