@@ -28,6 +28,12 @@ void Insert_Head (List &L, int x){
 	L=a;
 }
 
+//d
+void Insert_Tail (List &L, int x){
+	if(L==NULL) Insert_Head(L,x);
+	if(L!=NULL) Insert_Tail(L->post,x);
+}
+
 int main () {
 	List A;
 	Init_Empty_List(A);
@@ -36,7 +42,6 @@ int main () {
 			<< (bool)Is_Empty(A)<<std::endl;
 
 	Insert_Head(A, 6);
-	Insert_Head(A, 2);
 	std::cout << "Is the List Empty? "
 			<< (bool)Is_Empty(A)<<std::endl;
 }
