@@ -23,15 +23,26 @@ void Insert_Head (List &L, int x){
 	List a = new Link;
 	a->val = x;
 	a->post = L;
-	if(L==NULL) a->ante = NULL;
-	else a->ante = L->ante;
+	
+	a->ante = NULL;
+	//if(L==NULL) a->ante = NULL;
+	//else a->ante = L->ante;
+	
 	L=a;
 }
 
 //d
 void Insert_Tail (List &L, int x){
 	if(L==NULL) Insert_Head(L,x);
-	if(L!=NULL) Insert_Tail(L->post,x);
+	
+	else if(L->post == NULL) {
+		List a = new Link;
+		a->val = x;
+		a->post = NULL;
+		a->ante = L;
+		L->post = a;
+	}
+	else Insert_Tail(L->post, x);
 }
 
 //e
@@ -40,6 +51,14 @@ void COUT_List (List L){
 	while(i!=NULL){
 		std::cout << i->val <<std::endl;
 		i = i->post;
+	}
+}
+
+//f
+void COUT_List_Reverse (List L){
+	if(L!=NULL){
+		COUT_List_Reverse(L->post);
+		std::cout << L->val <<std::endl;
 	}
 }
 
@@ -55,4 +74,6 @@ int main () {
 	Insert_Head(A, 2);
 	Insert_Head(A, 1);
 	COUT_List(A);
+	Insert_Tail(A, 5);
+	COUT_List_Reverse(A);
 }
