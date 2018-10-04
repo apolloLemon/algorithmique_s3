@@ -6,7 +6,7 @@ struct maillon {
 using Liste = maillon *;
 
 Liste L;
-L = Null;
+L = NULL;
 
 L = new maillon;
 (*L).val = 75;
