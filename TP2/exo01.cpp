@@ -47,10 +47,10 @@ void Insert_Tail (List &L, int x){
 
 //e
 void COUT_List (List L){
-	List i = L;
-	while(i!=NULL){
-		std::cout << i->val <<std::endl;
-		i = i->post;
+	//List i = L;
+	while(L!=NULL){
+		std::cout << L->val <<std::endl;
+		L = L->post;
 	}
 }
 
