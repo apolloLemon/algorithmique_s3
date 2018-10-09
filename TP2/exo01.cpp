@@ -77,6 +77,19 @@ int List_Length_Recursif(List L){
 	return 1 + List_Length_Recursif(L->post);
 }
 
+//h
+void Remove_Head (List &L){
+	List a = L;
+	L = L->post;
+	delete a;
+}
+
+//i
+void Remove_Tail (List &L){
+	if(L->post!=NULL) Remove_Tail(L->post);
+	
+}
+
 int main () {
 	List A;
 	Init_Empty_List(A);
@@ -90,9 +103,8 @@ int main () {
 	Insert_Head(A, 1);
 	COUT_List(A);
 	Insert_Tail(A, 5);
+	Remove_Head(A);
 	COUT_List_Reverse(A);
-	std::cout<<"List_Length_Iteratif: "
-		<<List_Length_Iteratif(A)<<std::endl;
 
 	std::cout<<"List_Length_Recursif: "
 		<<List_Length_Recursif(A)<<std::endl;
