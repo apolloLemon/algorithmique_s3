@@ -53,3 +53,20 @@ InserTrie (Liste L, int e) {
 		}
 	}
 }
+
+InserTrieR (Liste &L, int e){
+	if(L==NULL){
+		L=new maillon;
+		L->suiv=NULL;
+		L->val = e;
+	} else {
+		if (e<=L->val){
+			Liste nouveau = new maillon;
+			nouveau->val = e;
+			nouveau->suiv = L;
+			L=nouveau;
+		}else{
+			InserTrieR(L->suiv,e);
+		}
+	}
+}
