@@ -6,10 +6,12 @@ struct Link {
 	Link * post;
 };
 
+using LinkP = Link *;
+
 struct List {
 	Link * HEAD;
 	Link * TAIL;
-}
+};
 
 //a
 void Init_Empty_List (List &L){
@@ -24,15 +26,13 @@ bool Is_Empty (List L){
 
 //c
 void Insert_Head (List &L, int x){
-	List a = new Link;
+	LinkP a = new Link;
 	a->val = x;
-	a->post = L;
-	
+	a->post = L->HEAD;
 	a->ante = NULL;
-	//if(L==NULL) a->ante = NULL;
-	//else a->ante = L->ante;
-	
-	L=a;
+
+	L->HEAD = a;
+	if(L->TAIL==NULL) L->TAIL = L->HEAD;
 }
 
 //d
