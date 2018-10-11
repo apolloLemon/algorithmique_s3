@@ -6,20 +6,16 @@ struct Link {
 	Link * post;
 };
 
-struct List {
-	Link * HEAD;
-	Link * TAIL;
-}
+using List = Link *;
 
 //a
 void Init_Empty_List (List &L){
-	L->HEAD = NULL;
-	L->TAIL = NULL;
+	L = NULL;
 }
 
 //b
 bool Is_Empty (List L){
-	return (L->HEAD==NULL || L->TAIL==NULL);
+	return (L==NULL);
 }
 
 //c
