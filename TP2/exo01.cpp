@@ -108,6 +108,16 @@ void Remove_Tail (List &L){
 	delete a;
 }
 
+//j - Complexite' = O(n)
+LinkP Find_in_List (List L, int x){
+	if (L.HEAD == NULL) return NULL;
+	if (L.HEAD->val == x) return L.HEAD;
+	else {
+		L.HEAD = L.HEAD->post;
+		Find_in_List(L,x);
+	}
+}
+
 int main () {
 	List A;
 	Init_Empty_List(A);
@@ -120,11 +130,13 @@ int main () {
 	Insert_Head(A,1);
 	Insert_Tail(A,4);
 	Insert_Tail(A,5);
-
 	std::cout<<"List_Length_Iteratif: "
 		<<List_Length_Iteratif(A)<<std::endl;
 
 	COUT_List(A);
+
+	std::cout <<"Address of 3 : "<<Find_in_List(A,3)<<std::endl;
+
 	std::cout << std::endl;
 
 	Remove_Head(A);
