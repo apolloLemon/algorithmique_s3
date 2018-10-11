@@ -13,18 +13,18 @@ struct List {
 	LinkP TAIL;
 };
 
-//a
+//a - Complexite' = O(1)
 void Init_Empty_List (List &L){
 	L.HEAD = NULL;
 	L.TAIL = NULL;
 }
 
-//b
+//b - Complexite' = O(1)
 bool Is_Empty (List L){
 	return (L.HEAD==NULL || L.TAIL==NULL);
 }
 
-//c
+//c - Complexite' = O(1)
 void Insert_Head (List &L, int x){
 	LinkP a = new Link;
 	a->val = x;
@@ -37,7 +37,7 @@ void Insert_Head (List &L, int x){
 	if(L.TAIL==NULL) L.TAIL = L.HEAD;
 }
 
-//d
+//d - Complexite' = O(1)
 void Insert_Tail (List &L, int x){
 	LinkP a = new Link;
 	a->val = x;
@@ -51,7 +51,7 @@ void Insert_Tail (List &L, int x){
 }
 
 
-//e
+//e - Complexite' = O(n)
 void COUT_List (List L){
 	//List i = L;
 	while(L.HEAD!=NULL){
@@ -60,7 +60,7 @@ void COUT_List (List L){
 	}
 }
 
-//f
+//f - Complexite' = O(n)
 void COUT_List_Reverse_Iteratif (List L){
 	while(L.TAIL!=NULL){
 		std::cout << L.TAIL->val <<std::endl;
@@ -76,7 +76,7 @@ void COUT_List_Reverse (List L){
 	COUT_List_Reverse(L);
 }
 
-//g
+//g - Complexite' = O(n)
 int List_Length_Iteratif(List L){
 	int out=0;
 	while(L.HEAD!=NULL){
@@ -92,7 +92,7 @@ int List_Length_Recursif(List L){
 	return 1 + List_Length_Recursif(L);
 }
 
-//h
+//h - Complexite' = O(1)
 void Remove_Head (List &L){
 	LinkP a = L.HEAD;
 	L.HEAD = a->post;
@@ -100,7 +100,7 @@ void Remove_Head (List &L){
 	delete a;
 }
 
-//i
+//i - Complexite' = O(1)
 void Remove_Tail (List &L){
 	LinkP a = L.TAIL;
 	L.TAIL = a->ante;
