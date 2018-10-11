@@ -9,8 +9,8 @@ struct Link {
 using LinkP = Link *;
 
 struct List {
-	Link * HEAD;
-	Link * TAIL;
+	LinkP HEAD;
+	LinkP TAIL;
 };
 
 //a
@@ -32,6 +32,8 @@ void Insert_Head (List &L, int x){
 	a->ante = NULL;
 
 	L.HEAD = a;
+
+	if(a->post!=NULL) a->post->ante = a;
 	if(L.TAIL==NULL) L.TAIL = L.HEAD;
 }
 
@@ -43,6 +45,8 @@ void Insert_Tail (List &L, int x){
 	a->ante = L.TAIL;
 
 	L.TAIL = a;
+
+	if(a->ante!=NULL) a->ante->post = a;
 	if(L.HEAD==NULL) L.HEAD = L.TAIL;	
 }
 
@@ -55,12 +59,12 @@ void COUT_List (List L){
 		L.HEAD = L.HEAD->post;
 	}
 }
-/*
+
 //f
 void COUT_List_Reverse (List L){
-	if(L!=NULL){
-		COUT_List_Reverse(L->post);
-		std::cout << L->val <<std::endl;
+	while(L.TAIL!=NULL){
+		std::cout << L.TAIL->val <<std::endl;
+		L.TAIL = L.TAIL->ante;
 	}
 }
 /*
@@ -105,4 +109,6 @@ int main () {
 	Insert_Tail(A,4);
 
 	COUT_List(A);
+	std::cout << std::endl;
+	COUT_List_Reverse(A);
 }
