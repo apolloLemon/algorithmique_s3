@@ -61,11 +61,19 @@ void COUT_List (List L){
 }
 
 //f
-void COUT_List_Reverse (List L){
+void COUT_List_Reverse_Iteratif (List L){
 	while(L.TAIL!=NULL){
 		std::cout << L.TAIL->val <<std::endl;
 		L.TAIL = L.TAIL->ante;
 	}
+}
+
+void COUT_List_Reverse (List L){
+	if(L.TAIL==NULL) return;
+
+	std::cout << L.TAIL->val <<std::endl;
+	L.TAIL = L.TAIL->ante;
+	COUT_List_Reverse(L);
 }
 /*
 //g
