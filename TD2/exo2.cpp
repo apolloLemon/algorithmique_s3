@@ -11,3 +11,4 @@ int Top(Pile p);
 void DePile(Pile &p);
 void Pile(Pile &p,int e);
 bool emptyPile (Pile p);
+
