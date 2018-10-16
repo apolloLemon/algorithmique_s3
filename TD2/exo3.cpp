@@ -1,5 +1,5 @@
 struct LMent {
-	int val;
+	int var;
 	LMent * next;
 };
 
@@ -34,7 +34,7 @@ void affiche_Liste (Liste a) {
 
 	Liste premier = a;
 	do{
-		std::cout << a->val << std::endl;
+		std::cout << a->var << std::endl;
 		a = a->next; 					//1
 	} while (a != premier);				//n
 }
@@ -51,7 +51,30 @@ int length_iteratif (Liste a) {
 }
 
 int length_recursif (Liste a, Liste b) {
-	if(a==NULL) return 0;
 	if(a==b) return 1;
 	return 1+length_recursif(a->next, b);
+}
+
+int length_recursif_Launcher (Liste a){
+	if(a==NULL) return 0;
+	return length_recursif(a->next,a);
+}
+
+using File = Liste;
+
+File initfile () {
+	return NULL;
+}
+
+File fileVide (File f) {
+	return (f==NULL);
+}
+
+int consulter (File f) {
+	if(fileVide(f)) return -1;
+	return(f->next->var)
+}
+
+void addFile (File f, int x) {
+	if()
 }
