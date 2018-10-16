@@ -75,6 +75,28 @@ int consulter (File f) {
 	return(f->next->var)
 }
 
-void addFile (File f, int x) {
-	if()
+void addFile (File &f, int x) {
+	File g = new LMent;
+	g->var = x;
+	if(f==NULL) {
+		g->next = g;
+		f=g;
+	} else {
+		g->next = f->next;
+		f->next = g;
+		f = g;
+	}
+}
+
+void rmFile (File &f, int x) {
+	if(F!=NULL){
+		File g;
+		g = f->next;
+		if(g==f){
+			f = NULL;
+		} else {
+			f->next = f->next->next;
+			delete g;
+		}
+	}
 }
