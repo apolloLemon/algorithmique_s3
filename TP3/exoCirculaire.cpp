@@ -35,6 +35,27 @@ int main (){
 	return 0;
 }
 
+/*int main()
+{
+	file f; 
+	init_F(f);
+	affichage(f);
+	insertion(f, 1);	affichage(f);
+	insertion(f, 2);	affichage(f);
+	insertion(f, 3);	affichage(f);
+	insertion(f, 4);	affichage(f);
+	insertion(f, 5);	affichage(f);
+	insertion(f, 6);	affichage(f);
+	suppression(f);	affichage(f);
+	insertion(f, 6);	affichage(f);
+	suppression(f);	affichage(f);
+	suppression(f);	affichage(f);
+	suppression(f);	affichage(f);
+	suppression(f);	affichage(f);
+	suppression(f);	affichage(f);
+	return 0;
+}*/
+
 int i_next (int i){
 	return ++i % SIZE;
 }
@@ -89,3 +110,13 @@ void affichage (file a){
 	}while(a.HEAD!=start);
 	std::cout<<std::endl;
 }
+
+/*void affichage (file a)
+{
+	if(vide(a)) std::cout << "vide   ";
+	else  if(pleine(a)) std::cout << "pleine ";
+        else std::cout << "non    ";
+	std::cout << " : [";
+	for(int i = a.HEAD; i != i_next(a.TAIL); i = i_next(i)) std::cout << a.e[i] << " ";
+	std::cout << "]" << std::endl;
+}*/
