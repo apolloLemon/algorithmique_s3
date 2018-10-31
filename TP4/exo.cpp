@@ -31,7 +31,7 @@ int main(){
 	std::string s;
 
 	while(std::getline(expression, s, ' ')){
-		std::cout << "getline " << s << std::endl;
+		//std::cout << "getline " << s << std::endl;
 		if(s=="+"){
 			Empiler(A,plus(Depiler(A),Depiler(A)));
 		} else if(s=="x"){
@@ -43,13 +43,13 @@ int main(){
 		} else {
 			Empiler(A,std::atof(s.c_str()));
 		}
-		AffichePile(A);
 	}
 
+	AffichePile(A);
 }
 
 bool PileVide(PILE a){
-	return (a.som);
+	return (a.som==0);
 }
 
 bool PilePleine(PILE a){
@@ -57,15 +57,14 @@ bool PilePleine(PILE a){
 }
 
 void Empiler(PILE &a, float x){
-	std::cout << "Empiler "<<x<<std::endl;
-	//if(!PilePleine(a))
+	//std::cout << "Empiler "<<x<<std::endl;
+	if(!PilePleine(a))
 		a.val[a.som++]=x;
 }
 float Depiler(PILE &a){
-	std::cout << "Depiler "<<a.som<<std::endl;
-	//if(!PileVide(a))
-		--a.som;
-		return a.val[a.som];
+	//std::cout << "Depiler "<<a.som<<std::endl;
+	if(!PileVide(a))
+		return a.val[--a.som];
 }
 
 void AffichePile(PILE a){
