@@ -26,12 +26,12 @@ Absurde
 //b
 //Matrice
 int puit (matrice){
-	for(i=1;i<=N;i++){
+	for(i=1;i<=N;i++){ //O(N^2)
 		int a=0;
 		for(j=1;j<=N;j++){
 			if(i!=j) a+=matrice[i][j];
 		}
-		if(a==0){ 
+		if(a==0){ //O(N)
 			int b=0;
 			for(k<N){
 				b+=matrice[k][i];
@@ -40,7 +40,7 @@ int puit (matrice){
 		}
 	}
 	return 0;
-}
+} //O(N^2)
 
 //Matrice Prof
 bool est_puit (matrice, s) {
