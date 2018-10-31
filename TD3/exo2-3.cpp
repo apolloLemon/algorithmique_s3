@@ -31,19 +31,19 @@ int puit (matrice){
 		for(j=1;j<=N;j++){
 			if(i!=j) a+=matrice[i][j];
 		}
-		if(a==0){
+		if(a==0){ 
 			int b=0;
 			for(k<N){
-				if(k!=i) b+=matrice[k][i];
+				b+=matrice[k][i];
 			}
-			if(b!=0) return b;
+			if(b>=N-1) return i;
 		}
 	}
 	return 0;
 }
 
 //Matrice Prof
-bool est_sommet (matrice, s) {
+bool est_puit (matrice, s) {
 	for(i=1;i<N){
 		if(j!=i){
 			if(matrice[s][i]==1 or matrice[i][s]==0)
@@ -54,7 +54,7 @@ bool est_sommet (matrice, s) {
 } //O(n)
 int Trouve_Puit (matrice) {
 	for(i<N){
-		if(est_sommet(matrice,i))
+		if(est_puit(matrice,i))
 			return i;
 	}
 	return 0;
