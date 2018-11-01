@@ -38,7 +38,7 @@ int main(){
 		std::cout << "getline " << s << std::endl;
 		if(s=="+"){
 			Empiler(A,plus(Depiler(A),Depiler(A)));
-		} else if(s=="x"){
+		} else if(s=="x" or s=="*"){
 			Empiler(A,mult(Depiler(A),Depiler(A)));
 		} else if(s=="^"){
 			Empiler(A,puis(Depiler(A),Depiler(A)));
