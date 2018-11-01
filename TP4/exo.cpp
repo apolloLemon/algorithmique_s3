@@ -24,14 +24,18 @@ float puis(float a, float b) {return pow(a,b);} //a^b
 float racc(float a) {return sqrt(a);}
 
 int main(){
-	PILE A;
-	A.som=0;
-	std::istringstream expression("2 5 + 4 5 3 + 2 ^ x RAC x");
+	PILE A; A.som=0;
+	
+	//std::istringstream expression("2 5 + 4 5 3 + 2 ^ x RAC x");
+	std::istringstream expression;
+	std::string exp;
 
 	std::string s;
+	std::cout << "Please enter PostFix expression :\n"; getline(std::cin, exp);
 
-	while(std::getline(expression, s, ' ')){
-		//std::cout << "getline " << s << std::endl;
+	expression.str(exp);
+	while(expression >> s){
+		std::cout << "getline " << s << std::endl;
 		if(s=="+"){
 			Empiler(A,plus(Depiler(A),Depiler(A)));
 		} else if(s=="x"){
