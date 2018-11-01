@@ -27,32 +27,33 @@ int main(){
 	PILE A; A.som=0;
 	
 	//std::istringstream expression("2 5 + 4 5 3 + 2 ^ x RAC x");
+
 	std::istringstream expression;
-	std::string exp;
+	std::string exp, s;
 
-	std::string s;
 	std::cout << "Please enter PostFix expression :\n"; getline(std::cin, exp);
-
 	expression.str(exp);
+
 	while(expression >> s){
-		std::cout << "getline " << s << std::endl;
-		if(s=="+"){
+		if(s=="+")
 			Empiler(A,plus(Depiler(A),Depiler(A)));
-		} else if(s=="x" or s=="*"){
+		else 
+		if(s=="x" or s=="*")
 			Empiler(A,mult(Depiler(A),Depiler(A)));
-		} else if(s=="^"){
+		else 
+		if(s=="^")
 			Empiler(A,puis(Depiler(A),Depiler(A)));
-		} else if(s=="RAC"){
+		else 
+		if(s=="RAC")
 			Empiler(A,racc(Depiler(A)));
-		} else {
+		else
 			Empiler(A,std::atof(s.c_str()));
-		}
 	}
 
 	AffichePile(A);
 }
 
-bool PileVide(PILE a){
+bool PileVide(PILE a) {
 	return (a.som==0);
 }
 
@@ -61,13 +62,11 @@ bool PilePleine(PILE a){
 }
 
 void Empiler(PILE &a, float x){
-	//std::cout << "Empiler "<<x<<std::endl;
-	if(!PilePleine(a))
+	if(not PilePleine(a))
 		a.val[a.som++]=x;
 }
 float Depiler(PILE &a){
-	//std::cout << "Depiler "<<a.som<<std::endl;
-	if(!PileVide(a))
+	if(not PileVide(a))
 		return a.val[--a.som];
 }
 
