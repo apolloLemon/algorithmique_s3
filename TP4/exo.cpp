@@ -1,3 +1,4 @@
+#define _USE_MATH_DEFINES
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -46,6 +47,12 @@ int main(){
 		else 
 		if(s=="RAC")
 			Empiler(A,racc(Depiler(A)));
+		else 
+		if(s=="PI")
+			Empiler(A,M_PI);
+		else 
+		if(s=="E")
+			Empiler(A,M_E);
 		else
 			Empiler(A,std::atof(s.c_str()));
 	}
