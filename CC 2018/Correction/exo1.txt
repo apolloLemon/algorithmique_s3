@@ -1,0 +1,12 @@
+/* 1
+L'algorithme retourne le premier element pas trie'
+*/
+
+/*2
+2 1 3 4 -> 1 comparaison
+1 3 2 4 -> 4 comparaisons
+*/
+
+/*4
+n^2
+*/
