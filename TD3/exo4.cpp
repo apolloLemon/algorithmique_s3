@@ -11,14 +11,14 @@ matrix adjacance;
 using pp = std::array<bool,SIZE>;
 struct walker {
 	int age;
-	int position;
+	//int position;
 	pp visites;
 };
 
-void parcours_Proffondeur(matrix adj, int s, walker &r){
+void parcours_Proffondeur(const matrix &adj, int s, walker &r){
 	//if(r.visites[s]) return;
 	r.visites[s] = true;
-	r.position = s;
+	//r.position = s;
 	//std::cout << "boby est en "<<s<<std::endl;
 
 	for(int i=0;i<SIZE;i++){
@@ -42,7 +42,7 @@ int main () {
 	adjehGaleh[3] = {0,0,2,0};
 	walker boby;
 
-	parcours_Proffondeur(adjehGaleh, 0, boby);
+	parcours_Proffondeur(adjehGaleh, 3, boby);
 
 	//std::cout << boby.age<< std::endl;
 
