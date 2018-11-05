@@ -34,3 +34,31 @@ void supp_double (List &L){
 		}
 	}
 }
+
+//4
+void PremAuBout (Liste &L){
+// 4.a : Il n'y a pas besoin de reserver plus de memoire
+
+	Liste p = L;
+	if(L!=NULL){
+		while(p->suiv != NULL) p=p->suiv;
+		p->suiv = L;
+		p=L;
+		L=L->suiv;
+		p->suiv=NULL;
+	}
+// 4.c : O(n)
+}
+
+//5
+struct Liste_Autre {
+	Liste debut;
+	Liste fin;
+};
+
+void PremAuBout(Liste_Autre &L) {
+	fin->suiv = debut;
+	fin = debut;
+	debut = debut->suiv;
+	fin->suiv = NULL;
+}
