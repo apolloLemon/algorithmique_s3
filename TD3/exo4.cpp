@@ -10,7 +10,7 @@ matrix adjacance;
 
 using pp = std::array<bool,SIZE>;
 struct walker {
-	int age;
+	int distance;
 	//int position;
 	pp visites;
 };
@@ -25,10 +25,10 @@ void parcours_Proffondeur(const matrix &adj, int s, walker &r){
 		//if(s==i) continue;
 
 		if(adj[s][i]!=0 and !r.visites[i]){
-			r.age+=adj[s][i];
-			std::cout << "De "<<s<<" a' "<<i<<" : "<<adj[s][i]<<" dist (Total fait par boby: "<<r.age<<")\n";
+			r.distance+=adj[s][i];
+			std::cout << "De "<<s<<" a' "<<i<<" : "<<adj[s][i]<<" dist (Total Distance from source: "<<r.distance<<")\n";
 			parcours_Proffondeur(adj,i,r);
-			r.age-=adj[s][i];
+			r.distance-=adj[s][i];
 		}
 	}
 }
@@ -44,7 +44,7 @@ int main () {
 
 	parcours_Proffondeur(adjehGaleh, 3, boby);
 
-	//std::cout << boby.age<< std::endl;
+	//std::cout << boby.distance<< std::endl;
 
 	return 0;
 }
