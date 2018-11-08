@@ -18,7 +18,7 @@ matrix MatrixZero (int s) {
 	matrix out;
 	for(int i=0;i<s;i++)
 		for(int j=0;j<s;j++)
-			if(i!=j) out[i][j]=false;
+			out[i][j]=false;
 	return out;
 }
 
@@ -40,7 +40,7 @@ bool correct (matrix_couleur G){
 int conflits (matrix_couleur G) {
 	int out = 0;
 	for(int i=0;i<G.size;i++)
-		for(int j=0;j<G.size;j++)
+		for(int j=i;j<G.size;j++)
 			if(i!=j && G.adj[i][j] && G.clr[i]==G.clr[j])
 				out++;
 	return out;
@@ -49,18 +49,23 @@ int conflits (matrix_couleur G) {
 int main () {
 
 	matrix_couleur G;
-	G.size = 3;
-	G.adj = MatrixZero(3);
-	G.clr = {1,2,1};
-
+	G.size = 5;
+	G.adj = MatrixZero(G.size);
+	
 	ajouteArete(G.adj, 0,1);
-	ajouteArete(G.adj, 0,2);
+	ajouteArete(G.adj, 0,3);
+	ajouteArete(G.adj, 1,2);
+	ajouteArete(G.adj, 2,4);
+	ajouteArete(G.adj, 3,4);
 
+	//G.clr = {1,2,1,2,3};
+	G.clr = {1,1,1,2,3};
+	
 	for(int i=0;i<G.size;i++){
 		for(int j=0;j<G.size;j++) std::cout <<G.adj[i][j];
 		std::cout<<std::endl;
 	}
 
-	std::cout << correct(G)<<std::endl;
+	std::cout << conflits(G)<<std::endl;
 	return 0;
 }
