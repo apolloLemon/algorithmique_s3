@@ -33,3 +33,13 @@ bool correct (matrix_couleur G){
 				return false;
 	return true;
 }
+
+//e
+int conflits (matrix_couleur G) {
+	int out = 0;
+	for(int i=0;i<G.size;i++)
+		for(int j=0;j<G.size;j++)
+			if(i!=j && G.adj[i][j] && G.clr[i]=G.clr[j])
+				out++;
+	return out;
+}
