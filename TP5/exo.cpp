@@ -1,7 +1,7 @@
 //a
 #include <array>
-const int SIZE = 5;
-using matrix = std::array<std::array<bool,SIZE>,SIZE>;
+const int DEFAULT_SIZE = 5;
+using matrix = std::array<std::array<bool,DEFAULT_SIZE>,DEFAULT_SIZE>;
 
 //b
 matrix MatrixZero (int s) {
@@ -18,8 +18,18 @@ void ajouteArete(matrix &G, int i, int j){
 }
 
 //c
-using couleurSommet = std::array<int,SIZE>;
+using couleurSommet = std::array<int,DEFAULT_SIZE>;
 struct matrix_couleur {
 	matrix adj;
 	couleurSommet clr;
+	int size;
 };
+
+//d
+bool correct (matrix_couleur G){
+	for(int i=0;i<G.size;i++)
+		for(int j=0;j<G.size;j++)
+			if(i!=j && G.adj[i][j] && G.clr[i]=G.clr[j])
+				return false;
+	return true;
+}
