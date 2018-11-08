@@ -1,0 +1,6 @@
+5
+Jean 10
+Martine 15
+David 12.5
+Martin 13
+Jeanne 8.5
