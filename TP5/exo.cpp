@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 //a
 #include <array>
@@ -49,21 +50,29 @@ int conflits (matrix_couleur G) {
 int main () {
 
 	matrix_couleur G;
-	G.size = 5;
+	std::ifstream graphe("TP5/fichier_graph_colorations/Myciel2.txt");
+	graphe >> G.size;
 	G.adj = MatrixZero(G.size);
-	
-	ajouteArete(G.adj, 0,1);
-	ajouteArete(G.adj, 0,3);
-	ajouteArete(G.adj, 1,2);
-	ajouteArete(G.adj, 2,4);
-	ajouteArete(G.adj, 3,4);
 
-	//G.clr = {1,2,1,2,3};
-	G.clr = {1,1,1,2,3};
-	
+	while(graphe){
+		int a,b;
+		graphe >>a>>b;
+		ajouteArete(G.adj,a-1,b-1);
+	}
+
+	std::ifstream coloration("TP5/fichier_graph_colorations/ColNonCorrect1.txt");
+
 	for(int i=0;i<G.size;i++){
-		for(int j=0;j<G.size;j++) std::cout <<G.adj[i][j];
+		for(int j=0;j<G.size;j++) {
+			std::cout <<G.adj[i][j];
+		}
 		std::cout<<std::endl;
+	}
+
+	int i=0;
+	while(coloration){
+		coloration >> G.clr[i];
+		i++;
 	}
 
 	std::cout << conflits(G)<<std::endl;
