@@ -26,7 +26,7 @@ void jeu(bool J, int N){
 		if(J) cout <<"IA win";
 		else cout << "player win";
 	}
-	else ={
+	else {
 		cout << "Il reste "<<N<<"allumettes\n";
 		if(J) jeu(!J,N-jouer(N));
 		else{
