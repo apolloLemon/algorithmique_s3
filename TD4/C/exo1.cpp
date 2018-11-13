@@ -21,3 +21,28 @@ P_gauche, I_gauche  et  P_droite, I_droite
 */
 int position(Ch,c);
 char caractere(Ch,i);
+int longeur(Ch);
+string sousChaine(Ch,deb,nbCar);
+
+struct knot {
+	char a;
+	knot * g;
+	knot * d;
+};
+using tree = knot *;
+
+void creerArbre(tree &A,string P, string I){
+	A->a = P[0];
+	int Ia = position(I,A->a);
+	
+	string Ig = sousChaine(I,0,Ia);
+	string Id = sousChaine(I,Ia,longeur(I)-Ia-1);
+	string Pg = sousChaine(P,1,longeur(Ig));
+	string Pg = sousChaine(P,longeur(Ig),longeur(Id));
+
+	tree g = new knot;
+	tree d = new knot;
+	A->g = g; A->d = d;
+	creerArbre(A->g,Pg,Ig);
+	creerArbre(A->d,Pd,Id);
+}
