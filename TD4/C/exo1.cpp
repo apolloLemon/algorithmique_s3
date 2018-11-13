@@ -1,7 +1,7 @@
 /*a
 M R F O A D I L B E
 
-E O R M I D A B L E
+F O R M I D A B L E
 */
 
 /*b
@@ -50,5 +50,6 @@ void creerArbre(tree &A,string P, string I){
 	if(length(Pd)!=0){
 		tree d = new knot;
 		A->d = d;
-		creerArbre(A->d,Pd,Id);}
+		creerArbre(A->d,Pd,Id);
+	}
 }
