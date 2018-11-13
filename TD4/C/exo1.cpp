@@ -37,9 +37,9 @@ void creerArbre(tree &A,string P, string I){
 	
 	//Ia = longeur(Ig)
 	string Ig = sousChaine(I,0,Ia);
-	string Id = sousChaine(I,Ia,longeur(I)-Ia-1);
+	string Id = sousChaine(I,Ia+1,longeur(I)-Ia-1);
 	string Pg = sousChaine(P,1,Ia);
-	string Pg = sousChaine(P,Ia,longeur(Id));
+	string Pg = sousChaine(P,Ia+1,longeur(Id));
 
 
 	if(length(Pg)!=0){
