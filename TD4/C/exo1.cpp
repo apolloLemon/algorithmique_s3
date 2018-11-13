@@ -40,9 +40,15 @@ void creerArbre(tree &A,string P, string I){
 	string Pg = sousChaine(P,1,longeur(Ig));
 	string Pg = sousChaine(P,longeur(Ig),longeur(Id));
 
-	tree g = new knot;
-	tree d = new knot;
-	A->g = g; A->d = d;
-	creerArbre(A->g,Pg,Ig);
-	creerArbre(A->d,Pd,Id);
+
+	if(length(Pg)!=0){
+		tree g = new knot;
+		A->g = g;
+		creerArbre(A->g,Pg,Ig);
+	}
+	
+	if(length(Pd)!=0){
+		tree d = new knot;
+		A->d = d;
+		creerArbre(A->d,Pd,Id);}
 }
