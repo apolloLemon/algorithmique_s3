@@ -25,3 +25,20 @@ void ajoute_numero (roulette &A, int n) {
 	while(i->suiv != A) i = i->suiv;
 	i->suiv = tmp;	
 }
+
+//d
+roulette creer_roulette (int n) {
+	roulette out;
+	init_roulette(out);
+
+	for(int i=0;i<n;i++){
+		ajoute_numero(out, i);
+	}
+}
+
+int main () {
+
+	
+
+	return 0;
+}
