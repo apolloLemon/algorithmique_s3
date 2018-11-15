@@ -19,17 +19,20 @@ bool pere (arbre_bi A){
 }
 
 bool est_bien_forme (arbre_bi A){
-	if(A->gauche == NULL and A->droit == NULL) return true;
+	if(A==NULL) return true;
+	if(!pere(A)) return true;
 
-	//if(A->droit != NULL and A->gauche != NULL)
-	return (A->val > 
-	((int)pere(A->droit)*A->droit->val 
-	+ (int)pere(A->gauche)*A->gauche->val)) 
-	&& est_bien_forme(A->droit) 
-	&& est_bien_forme(A->gauche);
-	/*
-	Only works on complete Trees
-	*/
+	bool g,d;
+
+	if(A->gauche != NULL && pere(A->gauche))
+		g = A->val > A->gauche->val &&
+			est_bien_forme(A->gauche);
+
+	if(A->droit != NULL && pere(A->droit))
+		d = A->val > A->droit->val &&
+			est_bien_forme(A->droit);
+
+	return g&d;
 }
 
 
