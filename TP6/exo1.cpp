@@ -18,11 +18,12 @@ void init_roulette (roulette &A){
 
 //c
 void ajoute_numero (roulette &A, int n) {
+	A.taille++;
 	valsRoulette tmp = new link;
 	tmp->val = n;
-	tmp->suiv = A;
-	roulette i = A;
-	while(i->suiv != A) i = i->suiv;
+	tmp->suiv = A.vals;
+	valsRoulette i = A.vals;
+	while(i->suiv != A.vals) i = i->suiv;
 	i->suiv = tmp;	
 }
 
@@ -38,7 +39,7 @@ roulette creer_roulette (int n) {
 
 int main () {
 
-	
+
 
 	return 0;
 }
