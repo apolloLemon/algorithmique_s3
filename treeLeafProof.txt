@@ -1,0 +1,36 @@
+On veut montrer un propriete' P(n) forall n in N
+
+Donc par recurence
+on demontre P(null) ou P(1)
+on suppose O(n) vrais pour un n donnee' (Hypothere de recurance)
+on montre alors que P(n+1) est vrai
+
+Alors on conclut que forall n in N P(n) est vrai
+
+Parfois on a utilise une HR forte, on suppose forall j <= n pour n donne', P(j) vrai
+
+Par recurence sur n la taille de l'arbre
+
+P(n) = f<=(n+1)/2
+
+P(0) arbre a' 0 noeud n=0 et f=0
+0<=(0+1)/2
+
+P(1) arbre a' 1 seul noeud n=1 et f=1
+1<=(1+1)/2
+
+On suppose P(j) vrai pour tout arbre de taille j avec j<=n, n donne's
+
+On considere un arbre binaire de taille n+1
+donc B1 et B2 sont deux sous arbres de taille <=n
+notons n1 et n2 la taille de B1 et B2
+f1 le nombre de fauille de B1
+
+Par H.R on a f1<=(n1+1)/2
+
+n = n1 + n2 + 1
+f = f1 + f2
+
+f1+f2 <= (n1+1)/2 + (n2+1)/2 = ((n1+n2+1)+1)/2
+
+f <= (n+1)/2

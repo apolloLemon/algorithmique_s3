@@ -1,0 +1,21 @@
+Soit une hauteur h fixe'
+
+Parmis les arbres de hauteur h, les arbres qui possedent le moins de noeurds sont les arbres filiformes
+Soit A un arbre binaire de hauteur h filimorme, sa taille est minimale on le note n_min
+Or n_min=h+1. Pour un arbrede hauteur la taille n verifie donc
+n >=n_min=h+1 soit n>=h+1 soit h <=n-1
+
+Pour les arbres de hauteur h, l'arbre qui possede le + de neouds est l'arbre complet de taille 2^(h+1)-1
+n_max = 2^(h+1)-1
+
+Pour un arbre A de hauteur h 
+n <= 2^(h+1)-1
+n < 2^(h+1)
+log2(n)<h+1
+log2(n)<=h
+
+Soit B un arbre binaire parfait de hauteur h
+sa taille n esdt entre la taille de l'arbre complet de hauteur (h-1) et la taille de l'arbre complet de hauteur h
+2^(h-1+1)-1+1 <= n <= 2^(h+1)-1
+2^h <= n < 2^(h+1)
+h <= log2(n) < h+1
