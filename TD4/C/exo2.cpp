@@ -18,7 +18,7 @@ void Empiler(PILE &a, int x);
 int Depiler(PILE &a);
 void AffichePile(PILE a);
 
-void affiche_Iteratif_with_help (tree A) {
+void affiche_Prefix_Iteratif_with_help (tree A) {
 	if(A==NULL) return;
 
 	PILE P; P.som = 0;
