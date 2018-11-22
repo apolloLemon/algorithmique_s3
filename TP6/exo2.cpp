@@ -18,25 +18,61 @@ roulette creer_roulette (int n);
 void tourner_roulette (roulette &A);
 int lancer_roulette (roulette &A);
 
+
 //a
 struct nt {
 	char a;
-	int gain;
-
+	int g;
+	std::array<nt*,3> s;
+	int ss;
+	roulette r;
 };
 
-int main (){
-	roulette a;
-	a = creer_roulette(5);
+//b
+struct graph {
+	int taille;
+	nt * start;
+};
+
+//c
+nt makeKnot (char a, int g, int r){
+	nt out;
+	out.a = a;
+	out.g = g;
+	out.ss = 0;
+	out.r = creer_roulette(r);
 }
 
-//b
+void addChildKnot (nt &A, nt &B) {
+	if(A.ss>3) return;
+	A.s[A.ss++] = B;
+}
+
+graph creer_graph () {
+	graph out;
+	out.taille = 1;
+	out.start = &makeKnot('A',5,3);
+
+}
+
+int main (){
+	graph a;
+	a = creer_graph;
+}
+
+
+
+
+
+
+
+
+
+//Exo1
 void init_roulette (roulette &A){
 	A.vals = nullptr;
 	A.taille = 0;
 }
-
-//c
 void ajoute_numero (roulette &A, int n) {
 	A.taille++;
 	valsRoulette tmp = new link;
@@ -56,8 +92,6 @@ void ajoute_numero (roulette &A, int n) {
 
 	tmp->suiv = A.vals;
 }
-
-//d
 roulette creer_roulette (int n) {
 	roulette out;
 	init_roulette(out);
@@ -67,13 +101,9 @@ roulette creer_roulette (int n) {
 	}
 	return out;
 }
-
-//e
 void tourner_roulette (roulette &A){
 	A.vals = A.vals->suiv;
 }
-
-//f
 int lancer_roulette (roulette &A) {
 	int a = rand()%A.taille;
 	for(int i=0;i<a;i++){
