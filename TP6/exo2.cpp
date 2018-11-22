@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <array>
 
 //Exo1
 struct link {
@@ -31,28 +32,30 @@ struct nt {
 //b
 struct graph {
 	int taille;
-	nt * start;
+	std::array<nt*,100> knots;
 };
 
 //c
-nt makeKnot (char a, int g, int r){
+nt makeKnot (char a, int g){
 	nt out;
 	out.a = a;
 	out.g = g;
 	out.ss = 0;
-	out.r = creer_roulette(r);
+	return out;
 }
 
 void addChildKnot (nt &A, nt &B) {
 	if(A.ss>3) return;
-	A.s[A.ss++] = B;
+	A.s[A.ss++] = &B;
 }
 
 graph creer_graph () {
 	graph out;
-	out.taille = 1;
-	out.start = &makeKnot('A',5,3);
-
+	out.taille = 'N'-'A'+1;
+	for(int i=0;i<out.taille;i++){
+		out.knots[i]=makeKnot('A'+i,rand(i)%50);
+	}
+	
 }
 
 int main (){
