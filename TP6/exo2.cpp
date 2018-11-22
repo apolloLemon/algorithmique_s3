@@ -99,6 +99,24 @@ void detruirGraph (graph a){
 	a.taille = 0;
 }
 
+//e
+nt* entree (graph a){
+	return a.knots[0];
+}
+
+//f
+bool est_feuille (nt a){
+	return (nt.ss = 0);
+}
+
+//g
+int nb_fils (nt a){
+	return nt.ss;
+}
+
+//h
+
+
 int main (){
 	srand(342789);
 	graph a;
