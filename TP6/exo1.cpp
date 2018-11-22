@@ -38,8 +38,6 @@ void ajoute_numero (roulette &A, int n) {
 	}
 
 	tmp->suiv = A.vals;
-
-		
 }
 
 //d
