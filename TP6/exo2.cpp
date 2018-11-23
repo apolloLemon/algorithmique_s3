@@ -105,12 +105,12 @@ nt* entree (graph a){
 
 //f
 bool est_feuille (nt a){
-	return (nt.ss = 0);
+	return (a.ss = 0);
 }
 
 //g
 int nb_fils (nt a){
-	return nt.ss;
+	return a.ss;
 }
 
 //h
@@ -120,6 +120,12 @@ void installer_roulettes (graph &A){
 	for(int i=0;i<A.taille;i++){
 		A.knots[i]->r = creer_roulette(nb_fils(*A.knots[i]));
 	}
+}
+
+//j
+int jouer (graph A){
+	nt knot = *entree(A);
+
 }
 
 
