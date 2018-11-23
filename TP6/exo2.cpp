@@ -53,10 +53,9 @@ void addChildKnot (nt* A, nt* B) {
 
 graph creer_graph () {
 	graph out;
-	out.taille = ('N'-'A')+1;
-	for(int i=0;i<out.taille;i++){
+	for(int i='A';i<='N';i++){
 		ntptr newknot = new nt;
-		*newknot = makeKnot((char)('A'+i),rand()%50);
+		*newknot = makeKnot((char)i,rand()%50);
 		out.knots[i] = newknot;
 	}
 
