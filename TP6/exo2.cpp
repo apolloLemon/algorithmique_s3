@@ -52,12 +52,14 @@ void addChildKnot (nt* A, nt* B) {
 }
 
 graph creer_graph () {
+	std::cout<<"1\n";
 	graph out;
 	for(int i='A';i<='N';i++){
 		ntptr newknot = new nt;
 		*newknot = makeKnot((char)i,rand()%50);
-		out.knots[i] = newknot;
+		out.knots[i-'A'] = newknot;
 	}
+	std::cout<<"2\n";
 
 	addChildKnot(out.knots['A'-'A'],out.knots['B'-'A']);
 	addChildKnot(out.knots['A'-'A'],out.knots['C'-'A']);
@@ -84,7 +86,7 @@ graph creer_graph () {
 	addChildKnot(out.knots['H'-'A'],out.knots['N'-'A']);
 	addChildKnot(out.knots['I'-'A'],out.knots['M'-'A']);
 	addChildKnot(out.knots['I'-'A'],out.knots['N'-'A']);
-
+	std::cout<<"3\n";
 	return out;
 }
 
@@ -114,6 +116,9 @@ int nb_fils (nt a){
 }
 
 //h
+nt* fils_n(nt a, int n){
+	return a.s[n-1];
+}
 
 //i
 void installer_roulettes (graph &A){
@@ -124,8 +129,13 @@ void installer_roulettes (graph &A){
 
 //j
 int jouer (graph A){
+	int out = 0;
 	nt knot = *entree(A);
-
+	while(not est_feuille(knot)){
+		out+=knot.g;
+		knot = *knot.s[lancer_roulette(knot.r)];
+	}
+	return out+knot.g;
 }
 
 
