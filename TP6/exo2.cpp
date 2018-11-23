@@ -115,6 +115,13 @@ int nb_fils (nt a){
 
 //h
 
+//i
+void installer_roulettes (graph &A){
+	for(int i=0;i<A.taille;i++){
+		A.knots[i]->r = creer_roulette(nb_fils(*A.knots[i]));
+	}
+}
+
 
 int main (){
 	srand(342789);
