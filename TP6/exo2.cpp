@@ -52,14 +52,12 @@ void addChildKnot (nt* A, nt* B) {
 }
 
 graph creer_graph () {
-	std::cout<<"1\n";
 	graph out;
 	for(int i='A';i<='N';i++){
 		ntptr newknot = new nt;
 		*newknot = makeKnot((char)i,rand()%50);
 		out.knots[i-'A'] = newknot;
 	}
-	std::cout<<"2\n";
 
 	addChildKnot(out.knots['A'-'A'],out.knots['B'-'A']);
 	addChildKnot(out.knots['A'-'A'],out.knots['C'-'A']);
@@ -86,7 +84,6 @@ graph creer_graph () {
 	addChildKnot(out.knots['H'-'A'],out.knots['N'-'A']);
 	addChildKnot(out.knots['I'-'A'],out.knots['M'-'A']);
 	addChildKnot(out.knots['I'-'A'],out.knots['N'-'A']);
-	std::cout<<"3\n";
 	return out;
 }
 
@@ -133,7 +130,7 @@ int jouer (graph A){
 	nt knot = *entree(A);
 	while(not est_feuille(knot)){
 		out+=knot.g;
-		knot = *knot.s[lancer_roulette(knot.r)];
+		knot = *fils_n(knot,lancer_roulette(knot.r));
 	}
 	return out+knot.g;
 }
@@ -146,6 +143,8 @@ int main (){
 
 	std::cout << a.knots[0]->a <<std::endl;
 	std::cout << a.knots[0]->s[0]->a <<std::endl;
+
+	std::cout << jouer(a)<<std::endl;
 }
 
 
