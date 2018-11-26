@@ -43,8 +43,10 @@ void SrtABPPO (ABPPO &a, int i){
 }
 
 int rmMin (ABPPO &a){
+	int out = a.tas[1];
 	swap(a.tas[1],a.tas[a.taille--]);
 	SrtABPPO(a,1);
+	return out;
 }
 
 /********
