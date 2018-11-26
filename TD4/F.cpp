@@ -42,6 +42,7 @@ void SrtABPPO (ABPPO &a, int i){
 }
 
 int rmMin (ABPPO &a){
-	
+	swap(a.tas[1],a.tas[a.taille--]);
+	SrtABPPO(a,1);
 }
 
