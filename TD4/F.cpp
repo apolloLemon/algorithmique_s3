@@ -18,7 +18,7 @@ struct ABPPO {
 
 //b O(log2 n)
 void srtLM (ABPPO &a, int i){
-	//if(i%2!=0) i--;
+	//if(i%2!=0) i--; because integer division always rounds down
 	if(i<1)return;
 
 	if(a.tas[i] < a.tas[i/2]){
@@ -32,20 +32,17 @@ void srtLM (ABPPO &a, int i){
 void ajouteLM (ABPPO &a, int x){
 	a.tas[++a.taille]=x;
 	int i = a.taille;
-	std::cout<<"ajouteLM: "<<i<<std::endl;
 	srtLM(a,i);
 }
 
 //c O(log2 n)
 void SrtABPPO (ABPPO &a, int i){
-	std::cout << "SrtABPPO i:"<<i<<" ";
 	int s;
 	if(i>a.taille) return;
 	if(i*2+1<=a.taille){
 		if(a.tas[i] > a.tas[i*2] 
 				or a.tas[i] > a.tas[i*2+1])	{
 			s = (int)(a.tas[i*2] >= a.tas[i*2+1]);
-			std::cout << "s:"<<s<<" 2i+s="<<2*i+s<<std::endl;
 			std::swap(a.tas[i],a.tas[2*i+s]);
 		}
 		SrtABPPO(a,2*i+s);
@@ -54,30 +51,8 @@ void SrtABPPO (ABPPO &a, int i){
 
 int rmMin (ABPPO &a){
 	int out = a.tas[1];
-	std::cout<<"rmMin: "<<out<<std::endl;
-
-	std::cout<<std::endl;
-	for(int i=1;i<=a.taille;i++){
-		std::cout<<a.tas[i]<<std::endl;
-	}
-	std::cout<<std::endl;
-
 	std::swap(a.tas[1],a.tas[a.taille--]);
-
-	std::cout<<std::endl;
-	for(int i=1;i<=a.taille;i++){
-		std::cout<<a.tas[i]<<std::endl;
-	}
-	std::cout<<std::endl;
-
 	SrtABPPO(a,1);
-
-	std::cout<<std::endl;
-	for(int i=1;i<=a.taille;i++){
-		std::cout<<a.tas[i]<<std::endl;
-	}
-	std::cout<<std::endl;
-
 	return out;
 }
 
@@ -90,9 +65,7 @@ HEAP SORT
 
 //a O(n log2 n)
 void List2Tree (ABPPO &a, std::vector<int> b){
-	std::cout<<"List2Tree\n";
 	for(int i=0;i<b.size();i++){
-		std::cout <<"b"<<i<<" "<<b[i]<<" ";
 		ajouteLM(a,b[i]); //O(log2 n)
 	}
 }
@@ -102,43 +75,34 @@ void List2Tree (ABPPO &a, std::vector<int> b){
 
 //c&d O(n log2 n)
 void addtoSortedList (ABPPO &a, std::vector<int> &b){
-	std::cout<<"addtoSortedList\n";
 	int i=0;
 	while(a.taille>0){
-		int tmp = rmMin(a); //break; //break added to shorten consol log output
-		std::cout <<"a"<<i++<<" "<<tmp<<std::endl;
+		int tmp = rmMin(a);
 		b.push_back(tmp);
 	}
 }
 
 int main () {
 
-	std::vector<int> b = {16,14,12,15,123,19,6,2,7,4,9844,3214,7779};
+	std::vector<int> b = {16,14,12,15,123,19,6,2,7,4,4002,3214,7779};
 	std::vector<int> v;
-	//v.size=0;
 	ABPPO a;
 
+	std::cout <<"Unsorted List: ";
 	for(int i=0;i<b.size();i++){
-		std::cout<<b[i]<<std::endl;
-	}
+		std::cout<<b[i]<<" ";
+	} std::cout<<std::endl;
 
-	std::cout<<"List2Tree\n";
+	std::cout<<"                     ///////////\n";
 	List2Tree(a,b);
-	
-	std::cout<<std::endl;
-
-	for(int i=1;i<=a.taille;i++){
-		std::cout<<a.tas[i]<<std::endl;
-	}
-
-	std::cout<<std::endl;
-
-	std::cout<<"addtoSortedList\n";
+	std::cout<<"                    /HEAP SORT/\n";	
 	addtoSortedList(a,v);
+	std::cout<<"                   ///////////\n";
 
+	std::cout <<"  Sorted List: ";
 	for(int i=0;i<v.size();i++){
-		std::cout<<v[i]<<std::endl;
-	}
+		std::cout<<v[i]<<" ";
+	} std::cout<<std::endl;
 
 	return 0;
 }
