@@ -46,3 +46,20 @@ int rmMin (ABPPO &a){
 	SrtABPPO(a,1);
 }
 
+/********
+HEAP SORT
+********/
+
+//pre-A
+
+
+//a
+void List2Tree (ABPPO &a, liste b){
+
+}
+
+//b
+void initList (liste &b){}
+
+//c&d
+void addtoSortedList (ABPPO &a, liste &b){}
