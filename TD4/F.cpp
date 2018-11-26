@@ -31,8 +31,8 @@ void srtLM (ABPPO &a, int i){
 
 void ajouteLM (ABPPO &a, int x){
 	a.tas[++a.taille]=x;
-
 	int i = a.taille;
+	std::cout<<"ajouteLM: "<<i<<std::endl;
 	srtLM(a,i);
 }
 
@@ -50,8 +50,30 @@ void SrtABPPO (ABPPO &a, int i){
 
 int rmMin (ABPPO &a){
 	int out = a.tas[1];
+	std::cout<<"rmMin: "<<out<<std::endl;
+
+	std::cout<<std::endl;
+	for(int i=1;i<=a.taille;i++){
+		std::cout<<a.tas[i]<<std::endl;
+	}
+	std::cout<<std::endl;
+
 	std::swap(a.tas[1],a.tas[a.taille--]);
+
+	std::cout<<std::endl;
+	for(int i=1;i<=a.taille;i++){
+		std::cout<<a.tas[i]<<std::endl;
+	}
+	std::cout<<std::endl;
+
 	SrtABPPO(a,1);
+
+	std::cout<<std::endl;
+	for(int i=1;i<=a.taille;i++){
+		std::cout<<a.tas[i]<<std::endl;
+	}
+	std::cout<<std::endl;
+
 	return out;
 }
 
@@ -64,7 +86,9 @@ HEAP SORT
 
 //a O(n log2 n)
 void List2Tree (ABPPO &a, std::vector<int> b){
+	std::cout<<"List2Tree\n";
 	for(int i=0;i<b.size();i++){
+		std::cout <<"b"<<i<<" "<<b[i]<<" ";
 		ajouteLM(a,b[i]); //O(log2 n)
 	}
 }
@@ -74,9 +98,12 @@ void List2Tree (ABPPO &a, std::vector<int> b){
 
 //c&d O(n log2 n)
 void addtoSortedList (ABPPO &a, std::vector<int> &b){
+	std::cout<<"addtoSortedList\n";
 	int i=0;
 	while(a.taille>0){
-		b.push_back(rmMin(a));
+		int tmp = rmMin(a); break; //break added to shorten consol log output
+		std::cout <<"a"<<i++<<" "<<tmp<<std::endl;
+		b.push_back(tmp);
 	}
 }
 
@@ -94,6 +121,14 @@ int main () {
 	std::cout<<"List2Tree\n";
 	List2Tree(a,b);
 	
+	std::cout<<std::endl;
+
+	for(int i=1;i<=a.taille;i++){
+		std::cout<<a.tas[i]<<std::endl;
+	}
+
+	std::cout<<std::endl;
+
 	std::cout<<"addtoSortedList\n";
 	addtoSortedList(a,v);
 
