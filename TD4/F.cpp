@@ -5,6 +5,7 @@ et c'est le premier du arr RPZ l'ABPPO
 
 //Pre-b
 using TAS = std::array<int,100>;
+using list = TAS;
 struct ABPPO {
 	TAS tas;
 	int taille;
@@ -54,12 +55,16 @@ HEAP SORT
 
 
 //a
-void List2Tree (ABPPO &a, liste b){
-
+void List2Tree (ABPPO &a, list b){
+	for(int i=0;i<b.size();i++){
+		ajouteLM(a,b[i]);
+	}
 }
 
 //b
-void initList (liste &b){}
+//void initList (liste &b){}
 
 //c&d
-void addtoSortedList (ABPPO &a, liste &b){}
+void addtoSortedList (ABPPO &a, list &b){
+
+}
