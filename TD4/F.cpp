@@ -38,14 +38,18 @@ void ajouteLM (ABPPO &a, int x){
 
 //c O(log2 n)
 void SrtABPPO (ABPPO &a, int i){
+	std::cout << "SrtABPPO i:"<<i<<" ";
 	int s;
 	if(i>a.taille) return;
-	if(a.tas[i] > a.tas[i*2] 
-		or a.tas[i] > a.tas[i*2+1])	{
-		s = (int)(a.tas[i*2] >= a.tas[i*2+1]);
-		std::swap(a.tas[i],a.tas[2*i+s]);
+	if(i*2+1<=a.taille){
+		if(a.tas[i] > a.tas[i*2] 
+				or a.tas[i] > a.tas[i*2+1])	{
+			s = (int)(a.tas[i*2] >= a.tas[i*2+1]);
+			std::cout << "s:"<<s<<" 2i+s="<<2*i+s<<std::endl;
+			std::swap(a.tas[i],a.tas[2*i+s]);
+		}
+		SrtABPPO(a,2*i+s);
 	}
-	SrtABPPO(a,2*i+s);
 }
 
 int rmMin (ABPPO &a){
@@ -101,7 +105,7 @@ void addtoSortedList (ABPPO &a, std::vector<int> &b){
 	std::cout<<"addtoSortedList\n";
 	int i=0;
 	while(a.taille>0){
-		int tmp = rmMin(a); break; //break added to shorten consol log output
+		int tmp = rmMin(a); //break; //break added to shorten consol log output
 		std::cout <<"a"<<i++<<" "<<tmp<<std::endl;
 		b.push_back(tmp);
 	}
