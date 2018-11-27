@@ -1,0 +1,26 @@
+-1 NON
+	 406
+	/
+401
+	\	  398 
+	 \   /
+	  330
+
+celui qui suis 398 dois etre entre 401 et 330 pour avoir un parcours correct, mais le prochain est 406
+
+-2 NON
+Arrive' a' 911 nous avons une borne inferieur de 202 et une borne inferieur de 925, 240 est dans les bornes.
+Arrive' a 240 la borne sup est maintenant 911, mais celui qui suis 912 n'est pas dans les bornes
+
+-3 OUI
+
+-4 NON
+
+Parcours Correct (tablo, min, max) {
+	if(tablo[1]>tablo[0])
+		min = tablo[0]
+	else
+		max = tablo[0]
+
+
+}
