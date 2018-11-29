@@ -16,3 +16,12 @@ bool ppdom(ABR A, ABR B) {
 	return (pluspetit(A)>=pluspetit(B) 
 		and plusgrand(A)<=plusgrand(B));
 }
+
+// Prof
+ppdom(ABR A, ABR B){
+	if(A==NULL) return true;
+	if(B==NULL) return false;
+	ABR A* = A; ABR B* = B;
+
+	while(A*->
+}
