@@ -1,4 +1,6 @@
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 
 //a
 struct knot {
@@ -42,18 +44,18 @@ void afficheBiTree (BiTree a) {
 }
 
 
+//tester Code
+void randomTree(BiTree &a, int s, int m){
+	for(int i=0;i<s;i++){
+		ajouteFeuille(a,rand()%m+1);
+	}
+}
+
 int main (){
+	srand(time(NULL));
 	BiTree a;
 	a=nullptr;
-	ajouteFeuille(a,2);
-	ajouteFeuille(a,1);
-	ajouteFeuille(a,8);
-	ajouteFeuille(a,94);
-	ajouteFeuille(a,33);
-	ajouteFeuille(a,4);
-	ajouteFeuille(a,9);
-	ajouteFeuille(a,-1);
-	ajouteFeuille(a,-60);
+	randomTree(a,10,20);
 
 	afficheBiTree(a);
 
