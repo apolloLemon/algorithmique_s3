@@ -5,3 +5,5 @@ struct knot {
 	knot * d;
 };
 using ArbreBinaire = knot *;
+
+//b
