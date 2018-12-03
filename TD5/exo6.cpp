@@ -26,3 +26,8 @@ void rotation_droite (tree &a) {
 	a->d = p;
 
 }
+
+void rotation_gauche_droite (tree &a) {
+	rotation_gauche(a->g);
+	rotation_droite(a);
+}
