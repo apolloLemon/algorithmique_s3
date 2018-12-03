@@ -43,6 +43,19 @@ void afficheBiTree (BiTree a) {
 	if(a->d!=nullptr) afficheBiTree(a->d);
 }
 
+//d
+bool intree (BiTree a, int x) {
+	if(a==nullptr) return false;
+
+	return intree(a->g,x) or a->x == x or intree(a->d,x);
+
+}
+
+
+
+
+
+
 
 //tester Code
 void randomTree(BiTree &a, int s, int m){
@@ -59,4 +72,5 @@ int main (){
 
 	afficheBiTree(a);
 
+	std::cout<<"Is 3 is"<<(intree(a,3)?" ":"n't ")<<"in the tree\n";
 }
