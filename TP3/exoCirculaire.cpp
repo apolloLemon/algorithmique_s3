@@ -35,27 +35,6 @@ int main (){
 	return 0;
 }
 
-/*int main()
-{
-	file f; 
-	init_F(f);
-	affichage(f);
-	insertion(f, 1);	affichage(f);
-	insertion(f, 2);	affichage(f);
-	insertion(f, 3);	affichage(f);
-	insertion(f, 4);	affichage(f);
-	insertion(f, 5);	affichage(f);
-	insertion(f, 6);	affichage(f);
-	suppression(f);	affichage(f);
-	insertion(f, 6);	affichage(f);
-	suppression(f);	affichage(f);
-	suppression(f);	affichage(f);
-	suppression(f);	affichage(f);
-	suppression(f);	affichage(f);
-	suppression(f);	affichage(f);
-	return 0;
-}*/
-
 int i_next (int i){
 	return ++i % SIZE;
 }
@@ -63,7 +42,7 @@ int i_next (int i){
 void init_F (file &a){
 	std::cout<<"init_F"<<std::endl;
 	a.HEAD = 0;
-	a.TAIL = SIZE;
+	a.TAIL = SIZE-1;
 }
 
 bool vide (file a) {
