@@ -16,7 +16,6 @@ void initArbre (AB &a){
 	a->p = nullptr;
 }
 
-//3
 void addKnot_to (AB &a, std::string etiq, AB parent){
 	a = new knot;
 	a->str = etiq;
@@ -34,6 +33,22 @@ void addKnot (AB &a, char s, std::string etiq){
 	}
 }
 
+//3
+bool estRacine (AB a) {
+	return (a) && (!a->p);
+}
+
+//4
+bool estFilsgauche (AB a){
+	return a == a->p->g;
+}
+
+//5
+bool estFilsdroit (AB a){
+	return a == a->p->d;
+}
+
+////EXO1
 //4
 bool est_feuille (AB a) {
 	return (!a->g) and (!a->d);
