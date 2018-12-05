@@ -22,7 +22,7 @@ int main (){
 	init_F(A);
 	std::cout << "\nA vide "<<vide(A)<<std::endl;
 	
-	for(int i=1;i<=SIZE+1;i++){
+	for(int i=1;i<SIZE;i++){
 		insertion(A,i);
 	}
 
