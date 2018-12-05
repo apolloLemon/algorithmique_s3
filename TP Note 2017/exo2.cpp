@@ -13,13 +13,15 @@ using AB = knot *;
 //2
 void initArbre (AB &a){
 	a=nullptr;
+	a->p = nullptr;
 }
 
 //3
-void addKnot_to (AB &a, std::string etiq){
+void addKnot_to (AB &a, std::string etiq, AB parent){
 	a = new knot;
 	a->str = etiq;
 	a->g=a->d=nullptr;
+	a->p = parent;
 	//std::cout << a << std::endl;
 }
 
