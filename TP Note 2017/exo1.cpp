@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 //1
@@ -18,6 +19,7 @@ void addKnot_to (AB &a, std::string etiq){
 	a = new knot;
 	a->str = etiq;
 	a->g=a->d=nullptr;
+	//std::cout << a << std::endl;
 }
 
 void addKnot (AB &a, char s, std::string etiq){
@@ -49,5 +51,37 @@ AB addressOf (AB a, std::string etiq) {
 	else return d;
 }
 
+//7
+void afficheNoeud (AB a) {
+	std::cout << a->str <<std::endl;
+}
 
-int main (){return 0;}
+
+void affiche_prefixe (AB a) {
+	if(!a) return;
+	afficheNoeud(a);
+	//std::cout<<a->g<<std::endl;
+	affiche_prefixe(a->g);
+	//std::cout<<a->d<<std::endl;
+	affiche_prefixe(a->d);
+}
+
+//8
+int main (){
+
+	AB a;
+	addKnot_to (a, "Usine");
+	addKnot(a,'G',"Depot A");
+	addKnot(a,'D',"Depot B");
+	addKnot(a->g,'G',"Magasin 1");
+	addKnot(a->g,'D',"Magasin 2");
+	addKnot(a->d,'G',"Depot C");
+	addKnot(a->d,'D',"Magasin 5");
+	addKnot(a->d->g,'G',"Magasin 3");
+	addKnot(a->d->g,'D',"Magasin 4");
+
+
+	affiche_prefixe(a);
+
+	return 0;
+}
