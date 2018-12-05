@@ -1,9 +1,15 @@
-//a
+//1
 struct knot {
-	int x;
+	std::string str;
 	knot * g;
 	knot * d;
 };
-using ArbreBinaire = knot *;
+using AB = knot *;
 
-//b
+//2
+void initArbre (AB &a){
+	a=nullptr;
+}
+
+//3
+
