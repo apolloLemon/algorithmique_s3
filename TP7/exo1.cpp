@@ -51,9 +51,23 @@ bool intree (BiTree a, int x) {
 
 }
 
+//e
+void suppr (BiTree &a, int x){
+	if(!a) return false;
+	if(x < a->x) suppr(a->g,x);
+	if(x > a->x) suppr(a->d,x);
 
-
-
+	if(!a->g){
+		BiTree tmp = a->g;
+		a=a->g;
+		delete tmp;
+	}
+	if(!a->d){
+		BiTree tmp = a->d;
+		a=a->d;
+		delete tmp;
+	}
+}
 
 
 
