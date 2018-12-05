@@ -4,7 +4,7 @@ if(d(a)) = {-1,0,1} => equilibre'
 
 if(d(a)) == -2 => right is heavier
 d(a->d) == -1 => rg(a) will balance the tree
-d(a->d) == 1 => rgd(a)
+d(a->d) == 1 => rgd(a) -> rd(a)rg(a->d)
 
 d(a) == 2 => left is heavier
 d(a->g) == 1 => rg(a)
