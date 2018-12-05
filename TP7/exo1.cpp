@@ -52,6 +52,18 @@ bool intree (BiTree a, int x) {
 }
 
 //e
+int supprMAX (BiTree &a){
+	if(!a) return NULL;
+	if(!a->d){
+		BiTree tmp = a;
+		int out = a->x;
+		a=a->g;
+		delete tmp;
+		return out;
+	}
+	return supprMAX(a->d);
+}
+
 void suppr (BiTree &a, int x){
 	if(!a) return false;
 	if(x < a->x) suppr(a->g,x);
@@ -62,11 +74,14 @@ void suppr (BiTree &a, int x){
 		a=a->g;
 		delete tmp;
 	}
-	if(!a->d){
+	else if(!a->d){
 		BiTree tmp = a->d;
 		a=a->d;
 		delete tmp;
+	} else {
+		a = supprMAX(a->g);
 	}
+
 }
 
 
