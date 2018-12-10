@@ -32,11 +32,16 @@ bool vide (pile p) {
 	return (p==nullptr);
 }
 
-/*int main () {
+/* 
+
+A.h est le meme fichier que A.cpp (ln A.cpp -T ./h/A.h)
+Le main ici est commente' pour pouvoir l'utiliser 
+dans C.cpp et D.cpp
+
+*//*int main () {
 
 	pile a;
 	initPile(a);
-
 	for (int i=1;i<=10;i++){
 		std::cout << "empiler " << x <<std::endl;
 		empiler(a,i);
@@ -45,5 +50,6 @@ bool vide (pile p) {
 		std::cout << "depiler " << sommet(p) <<std::endl;
 		depiler(a);
 	}
+	
 	return 0;
 }*/

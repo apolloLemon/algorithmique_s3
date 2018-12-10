@@ -23,20 +23,30 @@ void ajouteArete(graph &g, int i, int j) {
 }
 
 
-/*int main () {
-	graph g;
-	init(g,10);
+graph makeGraphB () {
+	graph B;
+	init(B,10);
 
-	//b
-	ajouteArete(g,1,3);
-	ajouteArete(g,2,3);
-	ajouteArete(g,2,4);
-	ajouteArete(g,4,3);
+	ajouteArete(B,1,3);
+	ajouteArete(B,2,3);
+	ajouteArete(B,2,4);
+	ajouteArete(B,4,3);
 
-	ajouteArete(g,5,6);
-	ajouteArete(g,6,8);
-	ajouteArete(g,8,5);
+	ajouteArete(B,5,6);
+	ajouteArete(B,6,8);
+	ajouteArete(B,8,5);
 
-	ajouteArete(g,7,10);
+	ajouteArete(B,7,10);
 
+	return B;
+}
+
+/* 
+
+B.h est le meme fichier que B.cpp (ln B.cpp -T ./h/B.h)
+Le main ici est commente' pour pouvoir l'utiliser 
+dans C.cpp et D.cpp
+
+*//*int main () {
+	graph g = makeGraphB();
 }*/

@@ -20,22 +20,12 @@ void Parcours (graph g, int start) {
 	}
 }
 
+/*
+
 int main () {
 
 	//Graph B
-	graph g;
-	init(g,10);
-
-	ajouteArete(g,1,3);
-	ajouteArete(g,2,3);
-	ajouteArete(g,2,4);
-	ajouteArete(g,4,3);
-
-	ajouteArete(g,5,6);
-	ajouteArete(g,6,8);
-	ajouteArete(g,8,5);
-
-	ajouteArete(g,7,10);
+	graph g = makeGraphB();
 
 
 	for(int i=1;i<=g.som;i++){
@@ -45,3 +35,4 @@ int main () {
 
 	return 0;
 }
+*/
