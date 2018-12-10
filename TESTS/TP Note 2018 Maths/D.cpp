@@ -77,10 +77,34 @@ int main () {
 	//Graph B
 	graph g = makeGraphB();
 
+	
+	
+
+	/* un tablo connexes resemble a' ceci
+	Connexe = connexes[sommet]:
+	Sommets:	1 2 3 4 5 6 7 8 9 10 	(i)
+	Connexe:	1 1 1 1 2 2 3 2 4 3  	(c[i])
+	*/
+
+
+	/* un matrice de connexes ressemble a' ceci
+	
+	4 0 0 0 0 0 0 0 0 0 0
+	0 1 2 3 4 0 0 0 0 0 0
+	0         5 6 0 8
+	0             7 0 0 10
+	0                 9
+	.
+	.
+
+	M[0][0] est le nombre de connexes
+	et chaque ligne represente un connexe differant
+	on affichera alors ligne par ligne, ce qui n'est pas ==0
+
+	*/
+
 	//afficheConnexe(ParcoursComp(g));
-
 	std::cout<<std::endl;
-
 	afficheMat(g,connexeToMatrix(ParcoursComp(g)));
 
 
