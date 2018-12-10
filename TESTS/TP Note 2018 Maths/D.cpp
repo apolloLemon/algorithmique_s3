@@ -82,14 +82,15 @@ int main () {
 	afficheMat(g,connexeToMatrix(ParcoursComp(g)));
 	
 
-	/* un tablo connexes resemble a' ceci
+	/* 
+	un tablo connexes resemble a' ceci
 	Connexe = connexes[sommet]:
 	Sommets:	1 2 3 4 5 6 7 8 9 10 	(i)
 	Connexe:	1 1 1 1 2 2 3 2 4 3  	(c[i])
-	*/
 
 
-	/* un matrice de connexes ressemble a' ceci
+
+	un matrice de connexes ressemble a' ceci
 	
 	4 0 0 0 0 0 0 0 0 0 0
 	0 1 2 3 4 0 0 0 0 0 0
@@ -104,6 +105,6 @@ int main () {
 	on affichera alors ligne par ligne, ce qui n'est pas ==0
 
 	*/
-	
+
 	return 0;
 }
