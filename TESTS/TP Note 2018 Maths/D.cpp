@@ -1,7 +1,7 @@
 #include "./h/A.h"
 #include "./h/B.h"
-;
-using connexes = std::array<int,Nmax+1>;
+
+using connexes = std::array<int,Nmax>;
 using connexeMatrix = std::array<std::array<int,Nmax>,Nmax>;
 
 connexes ParcoursComp (graph g) {
@@ -11,17 +11,17 @@ connexes ParcoursComp (graph g) {
 	marque[0]=g.som;
 	for(int i=1; i<=g.som;i++) marque[i] = 0;
 
+	int i=0; //indice du connexe
 	for(int j=1; j<=g.som;j++){
+		if(marque[j]) continue;
+		i++; //on est dans un nouveau connexe
+
 		pile p;
 		empiler(p,j);
 		
-		int i=0; //indice du connexe
 		while(!vide(p)) {
 			int s = sommet(p);depiler(p);
-			if(marque[s]) continue; //si un sommet est dans un connexe, on skip
-
-			i++; //on est dans un nouveau connexe
-			std::cout << s << std::endl;
+			//std::cout << s << std::endl;
 			marque[s] = i;
 			for(int i=1;i<=g.som;i++)
 				if(g.adj[s][i] && !marque[i])
@@ -40,10 +40,16 @@ int nombreComposantes (connexes c){
 	return out;
 }
 
+void afficheConnexe (connexes c){
+	for(int i=1;i<=c[0];i++){
+		std::cout << c[i] << " : "<<i<<std::endl;
+	}
+}
+
 void zeroMat (connexeMatrix &M) {
 	for(int i=1;i<=M[0][0];i++)
 		for(int j=1;j<=M[0][0];j++)
-			M[i][j]=1;
+			M[i][j]=0;
 }
 
 connexeMatrix connexeToMatrix (connexes c) {
@@ -70,6 +76,10 @@ int main () {
 
 	//Graph B
 	graph g = makeGraphB();
+
+	//afficheConnexe(ParcoursComp(g));
+
+	std::cout<<std::endl;
 
 	afficheMat(g,connexeToMatrix(ParcoursComp(g)));
 
