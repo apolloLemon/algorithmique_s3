@@ -20,8 +20,6 @@ void Parcours (graph g, int start) {
 	}
 }
 
-/*
-
 int main () {
 
 	//Graph B
@@ -35,4 +33,3 @@ int main () {
 
 	return 0;
 }
-*/

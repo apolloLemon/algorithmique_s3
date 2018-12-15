@@ -5,6 +5,7 @@ using connexes = std::array<int,Nmax>;
 using connexeMatrix = std::array<std::array<int,Nmax>,Nmax>;
 
 connexes ParcoursComp (graph g) {
+	std::cout << "ParcoursComp" <<std::endl;
 	//array de sommets marques'
 	//change' de bool -> int pour l'indice du connexe
 	connexes marque;
@@ -13,6 +14,7 @@ connexes ParcoursComp (graph g) {
 
 	int i=0; //indice du connexe
 	for(int j=1; j<=g.som;j++){
+		std::cout << "j :"<<j<<std::endl;
 		if(marque[j]) continue;
 		i++; //on est dans un nouveau connexe
 
@@ -21,13 +23,14 @@ connexes ParcoursComp (graph g) {
 		
 		while(!vide(p)) {
 			int s = sommet(p);depiler(p);
-			//std::cout << s << std::endl;
+			std::cout << s << std::endl;
 			marque[s] = i;
 			for(int i=1;i<=g.som;i++)
 				if(g.adj[s][i] && !marque[i])
 					empiler(p,i); 
 					//marque[i] = true; //ceci empaiche les doublons dans l'affichage
 		}
+		std::cout<<"endLoop"<<std::endl;
 	}
 
 	return marque;
@@ -77,7 +80,7 @@ int main () {
 	//Graph B
 	graph g = makeGraphB();
 
-	//afficheConnexe(ParcoursComp(g));
+	afficheConnexe(ParcoursComp(g));
 	std::cout<<std::endl;
 	afficheMat(g,connexeToMatrix(ParcoursComp(g)));
 	
