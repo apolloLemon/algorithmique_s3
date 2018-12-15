@@ -4,7 +4,7 @@ Le tableau Place est de dimension n+1 pour stocker une valeur de 'debut liste de
 on utilise Place[i] comme indice de debut de 'liste de successeurs de i'
 Place[i+1]-1 comme indice de fin de 'liste de successeurs de i'
 
-Si tout les sommets sont connectees' a' tout les autres sommets pour n sommets on aurra (n(n-1))/2 arc
+Si tout les sommets sont connectees' a' tout les autres sommets pour n sommets on aurra n*n arc
 mais on peu aussi se limiter a' une liste de taille egale a' place[i+1]-1 car c'est de dernier indice utile
 
 */
@@ -13,7 +13,7 @@ mais on peu aussi se limiter a' une liste de taille egale a' place[i+1]-1 car c'
 struct Graph { // de Representation par tableau de successeurs
 	int n;
 	array<int, n+1 > place;
-	array<int, (n*(n-1))/2 > successeurs;
+	array<int, n*n > successeurs;
 	//array<int, place[n]-1> successeurs; //ou
 };
 
@@ -55,6 +55,6 @@ sois array<array<int,place[n]>,2> ou array<array<int,2>,place[n]>
 struct Graph_Pondere { // de Representation par tableau de successeurs
 	int n;
 	array<int, n+1 > place;
-	array<int, (n*(n-1))/2 > successeurs;
+	array<int, n*n > successeurs;
 	array<successeurs, 2> successeursPondere;
 };
