@@ -58,3 +58,13 @@ struct Graph_Pondere { // de Representation par tableau de successeurs
 	array<int, n*n > successeurs;
 	array<successeurs, 2> successeursPondere;
 };
+
+//6 Hazurl
+struct Successeur {
+	int index;
+	int poids;
+};
+struct Graph_Pondere_Hazurl {
+	vector<int> places;
+	vector<successeurs> successeurs;
+};
