@@ -1,8 +1,8 @@
 /*1
 
-Le tableau Place est de dimension n+1 pour stocker une valeur de 'debut de prochain liste de successeurs'
-on utilise Place[i] comme indice de debut de 'liste de successeurs'
-Place[i+1]-1 comme indice de fin de 'liste de successeurs'
+Le tableau Place est de dimension n+1 pour stocker une valeur de 'debut liste de successeurs de i+1'
+on utilise Place[i] comme indice de debut de 'liste de successeurs de i'
+Place[i+1]-1 comme indice de fin de 'liste de successeurs de i'
 
 Si tout les sommets sont connectees' a' tout les autres sommets pour n sommets on aurra (n(n-1))/2 arc
 mais on peu aussi se limiter a' une liste de taille egale a' place[i+1]-1 car c'est de dernier indice utile
